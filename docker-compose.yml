@@ -1,9 +1,9 @@
 services:
-  blueprint:
+  micro_url:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: blueprint
+    container_name: micro_url
     depends_on:
     - postgres_db
     entrypoint: bash /code/docker-entrypoint-dev.sh
@@ -12,7 +12,7 @@ services:
       CORS_ORIGIN_WHITELIST: localhost,127.0.0.1,0.0.0.0
       DATABASE_ENGINE: postgresql
       DATABASE_HOST: postgres_db
-      DATABASE_NAME: blueprint
+      DATABASE_NAME: micro_url
       DATABASE_PASSWORD: root
       DATABASE_PORT: '5432'
       DATABASE_USER: root
@@ -23,7 +23,7 @@ services:
         -----END PUBLIC KEY-----'
       SECRET_KEY: ww2aa^#2381%9&2pueqk+0ix=g)7h61##(o*mez6h(@b3a3
       STATIC_ROOT: /static/
-    image: blueprint
+    image: micro_url
     ports:
     - 8080:8080
     volumes:
@@ -31,7 +31,7 @@ services:
   postgres_db:
     container_name: postgres_db
     environment:
-      POSTGRES_DB: blueprint
+      POSTGRES_DB: micro_url
       POSTGRES_PASSWORD: root
       POSTGRES_USER: root
     healthcheck:

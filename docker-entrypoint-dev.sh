@@ -15,4 +15,4 @@ echo $(date -u) "- Creating admin user"
 python manage.py shell -c "from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'admin')"
 
 echo $(date -u) "- Running the server"
-gunicorn django_service_blueprint.wsgi --config django_service_blueprint/gunicorn_conf.py --reload
+gunicorn micro_url_service.wsgi --config micro_url_service/gunicorn_conf.py --reload

@@ -1,4 +1,4 @@
-"""django_service_blueprint URL Configuration
+"""micro_url_service URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -23,13 +23,13 @@ from rest_framework import permissions, routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from app.views import WelcomeView
+from micro_url.views import redirect_original
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Service Blueprint",
+        title="Micro URL service",
         default_version='latest',
-        description="Test description",
+        description="URL shortener",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -46,7 +46,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
     path('api/', include(router.urls)),
-    path('', WelcomeView.as_view()),
+    re_path(r'^(?P<short_id>\w+)/$', redirect_original, name="redirect")
 ]
 
 urlpatterns += staticfiles_urlpatterns()

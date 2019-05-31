@@ -55,7 +55,7 @@ INSTALLED_APPS_THIRD_PARTIES = [
 ]
 
 INSTALLED_APPS_LOCAL = [
-    'app',
+    'micro_url',
 ]
 
 INSTALLED_APPS = INSTALLED_APPS_DJANGO + INSTALLED_APPS_THIRD_PARTIES + \
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_service_blueprint.urls'
+ROOT_URLCONF = 'micro_url_service.urls'
 
 TEMPLATES = [
     {
@@ -89,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_service_blueprint.wsgi.application'
+WSGI_APPLICATION = 'micro_url_service.wsgi.application'
 
 
 # Database
@@ -159,7 +159,7 @@ REST_FRAMEWORK = {
         'oauth2_provider_jwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'app.permissions.AllowOptionsAuthentication',
+        'micro_url.permissions.AllowOptionsAuthentication',
     )
 }
 
