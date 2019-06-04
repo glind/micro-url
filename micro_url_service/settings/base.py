@@ -168,3 +168,7 @@ REST_FRAMEWORK = {
 JWT_AUTH_DISABLED = True
 JWT_ALLOWED_ISSUER = 'bifrost'
 JWT_PUBLIC_KEY_RSA_BIFROST = os.getenv('JWT_PUBLIC_KEY_RSA_BIFROST')
+
+SWAGGER_SETTINGS = {
+    'DEFAULT_INFO': 'micro_url_service.urls.swagger_info',
+}

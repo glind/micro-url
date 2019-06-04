@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='URLService',
             fields=[
                 ('original_url', models.CharField(help_text='Old Long URL.', max_length=255)),
-                ('new_url', models.CharField(help_text='New Shorty URL.', max_length=255, required=False)),
+                ('new_url', models.CharField(help_text='New Shorty URL.', max_length=255)),
                 ('unique_id', models.CharField(help_text='Unique ID', max_length=55, primary_key=True, serialize=False)),
                 ('count', models.IntegerField(help_text='Number of times used')),
                 ('create_date', models.DateTimeField(auto_now_add=True, help_text='Timestamp when the URL was created (automatically set, ISO format).')),
