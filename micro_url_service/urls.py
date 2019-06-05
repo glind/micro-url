@@ -21,10 +21,12 @@ from rest_framework import permissions, routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from micro_url.views import redirect_original
+
 swagger_info = openapi.Info(
-    title='Location Service API',
+    title='MicroURL API',
     default_version='latest',
-    description="The location service enables your application to store and group international addresses.",
+    description="Create short URL's that redirect to the longer one",
 )
 
 schema_view = get_schema_view(
@@ -33,7 +35,6 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 router = routers.SimpleRouter()
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
