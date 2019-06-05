@@ -15,26 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path, include, re_path
+from django.urls import path, re_path, include
 from rest_framework import permissions, routers
 
-
-# openapi implementation
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from micro_url.views import redirect_original
+swagger_info = openapi.Info(
+    title='Location Service API',
+    default_version='latest',
+    description="The location service enables your application to store and group international addresses.",
+)
 
 schema_view = get_schema_view(
-    openapi.Info(
-        title="Micro URL service",
-        default_version='latest',
-        description="URL shortener",
-    ),
+    swagger_info,
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
-
 router = routers.SimpleRouter()
 
 
