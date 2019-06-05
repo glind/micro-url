@@ -44,6 +44,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
     path('api/', include(router.urls)),
+    path(r'', include('micro_url.urls')),
     re_path(r'^(?P<short_id>\w+)/$', redirect_original, name="redirect")
 ]
 
